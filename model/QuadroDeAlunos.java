@@ -2,18 +2,22 @@ package model;
 
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.*;
 
 public class QuadroDeAlunos {
 	
-	Map<String, Aluno> alunos;
+	public Map<String , Aluno> alunosPorId;
+	public Map<Aluno, ArrayList<Rendimento>> rendimentosPorAluno;
 
 	public QuadroDeAlunos() {
-		this.alunos = new TreeMap<>();
+		this.alunosPorId = new TreeMap<>();
+		this.rendimentosPorAluno = new TreeMap<>();
 	}
 	
 	public boolean add(Aluno aluno) {
-		if( ! alunos.containsKey(aluno.getId()) ) {
-			alunos.put(aluno.getId(), aluno);
+		if( ! alunosPorId.containsKey(aluno.getId()) ) {
+			alunosPorId.put(aluno.getId(), aluno);
+			rendimentosPorAluno.put(aluno, new ArrayList<>());
 			return true;
 		}
 		else {
@@ -23,12 +27,16 @@ public class QuadroDeAlunos {
 	}
 	
 	public Aluno getAluno(String id) {
-		return alunos.get(id);
+		return alunosPorId.get(id);
 	}
 
 	@Override
 	public String toString() {
-		return "QuadroDeAlunos [alunos=" + alunos + "]";
+		return "QuadroDeAlunos [alunos=" + alunosPorId + "]";
+	}
+
+	public void addRendimento(Aluno aluno, Rendimento rendimento) {
+			rendimentosPorAluno.get(aluno).add(rendimento);
 	}
 	
 	

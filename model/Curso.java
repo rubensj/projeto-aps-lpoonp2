@@ -1,17 +1,17 @@
 package model;
 
-public class Curso implements Comparable<Curso>{
+public abstract class Curso implements Comparable<Curso>{
 
 	// ATRIBUTOS
 	private String nome;
-	private Nivel nivel;
 	private int ano;
 	
 	// METODOS ESPECIAIS
 	// METODO CONSTRUTOR
-	public Curso()
+	public Curso(String aNome, int aAno)
 	{
-		
+		this.nome = aNome;
+		this.ano = aAno;
 	}
 	
 	// GETTERS AND SETTERS
@@ -25,11 +25,6 @@ public class Curso implements Comparable<Curso>{
 		this.nome = aNome;
 	}
 	
-	public Nivel getNivel()
-	{
-		return this.nivel;
-	}
-	
 	public int getAno()
 	{
 		return this.ano;
@@ -40,24 +35,9 @@ public class Curso implements Comparable<Curso>{
 		this.ano = aAno;
 	}
 	
-	// METODOS
-	public enum Nivel
-	{
-		graduacao("Gradua��o"),
-		pos_graduacao("P�s-Gradua��o");
-		
-		private String descricao;
-		
-		Nivel(String descricao)
-		{
-			this.descricao = descricao;
-		}
-		
-		public String getDescricao()
-		{
-			return descricao;
-		}
-	}
+	// Abstract methods
+	public abstract String getNivel();
+	
 
 	// OVERRIDES
         @Override
@@ -73,7 +53,7 @@ public class Curso implements Comparable<Curso>{
 		
 		return (
 				   this.nome.equals(outroCurso.getNome())
-				&& this.nivel==outroCurso.getNivel()
+				&& this.getNivel()==outroCurso.getNivel()
 				&& this.ano == outroCurso.getAno()
 				);
 	
@@ -87,5 +67,16 @@ public class Curso implements Comparable<Curso>{
 		}
 			return Integer.compare(this.ano, outroCurso.getAno());
 	}
+	
+	@Override
+	public String toString() {
+		String r = "";
+		r += "Curso:\n";
+		r += "Nome: " + this.getNome()+"\n";
+		r += "Nivel: " +this.getNivel()+"\n";
+		r += "Ano: " + this.getAno()+"\n";
+		return r;
+	}
+	
 	
 }

@@ -1,8 +1,6 @@
 
 package model;
 
-import model.Curso.Nivel;
-
 public class Rendimento {
     
     private Aluno aluno;
@@ -61,14 +59,14 @@ public class Rendimento {
         this.media = aMedia;
     }
     
-    public boolean getAprovado()
+    public boolean isAprovado()
     {  
         return this.aprovado;
     }
     
-    public void setAprovado(boolean aAprovado) 
+    public void setAprovado(boolean isAprovado) 
     {
-        this.aprovado = aAprovado;
+        this.aprovado = isAprovado;
     }
     
     // METODOS
@@ -92,7 +90,7 @@ public class Rendimento {
             tempMedia = (this.getNotas().getNp1().getValor() + this.getNotas().getNp2().getValor())/2;
         }
         
-        if(this.getCurso().getNivel() == Nivel.graduacao)
+        if(this.getCurso().getNivel() == "graduacao")
         {
             if(tempMedia >= 7)
             {

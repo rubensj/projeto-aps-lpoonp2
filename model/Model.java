@@ -2,7 +2,7 @@ package model;
 
 public class Model {
 	
-	public Faculdade faculdade = new Faculdade();
+	public static Faculdade faculdade = new Faculdade();
 	
 
 }

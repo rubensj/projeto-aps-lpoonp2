@@ -36,7 +36,7 @@ public class Aluno implements Comparable<Aluno>{
 	}
 
 	// OVERRIDES
-        @Override
+    @Override
 	public boolean equals(Object outroObject) {
 		
 		if(this==outroObject)
@@ -55,6 +55,14 @@ public class Aluno implements Comparable<Aluno>{
 	public int compareTo(Aluno outroAluno) 
 	{
             return this.id.compareTo(outroAluno.getId());
+	}
+	
+	@Override
+	public String toString() {
+		String r = "";
+		r += "ID: " + this.id + "\n";
+		r += "None: " + this.nome + "\n";
+		return r;
 	}
 	
 }
