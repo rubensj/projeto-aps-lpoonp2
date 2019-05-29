@@ -65,4 +65,10 @@ public class Aluno implements Comparable<Aluno>{
 		return r;
 	}
 	
+	public String toCSVString() {
+		String r = "";
+		r = this.id + ";" + this.nome;
+		return r;
+	}
+	
 }

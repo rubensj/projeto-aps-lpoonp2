@@ -37,6 +37,7 @@ public abstract class Curso implements Comparable<Curso>{
 	
 	// Abstract methods
 	public abstract String getNivel();
+	public abstract String toCSVString();
 	
 
 	// OVERRIDES
@@ -65,7 +66,11 @@ public abstract class Curso implements Comparable<Curso>{
 		{
 			return this.nome.compareTo(outroCurso.getNome());
 		}
+		if(this.ano!=outroCurso.getAno())
+		{
 			return Integer.compare(this.ano, outroCurso.getAno());
+		}
+		return this.getNivel().compareTo(outroCurso.getNivel());
 	}
 	
 	@Override

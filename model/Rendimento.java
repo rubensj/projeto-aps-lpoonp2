@@ -90,7 +90,7 @@ public class Rendimento {
             tempMedia = (this.getNotas().getNp1().getValor() + this.getNotas().getNp2().getValor())/2;
         }
         
-        if(this.getCurso().getNivel() == "graduacao")
+        if(this.getCurso().getNivel() == "GRADUACAO")
         {
             if(tempMedia >= 7)
             {
@@ -137,4 +137,31 @@ public class Rendimento {
             
     }
     
+    public String toCSVString() {
+		String r = "";
+		r = this.getAluno().getId() + ";" + this.notas.getNp1().getValor() + ";" + this.notas.getNp2().getValor() + ";" +
+			this.notas.getReposicao().getValor() + ";" + this.notas.getExame().getValor();
+		return r;
+	}
+    
+    @Override
+    public String toString() {
+    	String r = "";
+    	r += "ID: " + this.getAluno().getId() + "\n";
+    	r += "Nome: " + this.getAluno().getNome() + "\n";
+    	r += "Curso: " + this.getCurso().getNome() + "\n";
+    	r += "Ano: " + this.getCurso().getAno() + "\n";
+    	r += "Tipo: " + this.getCurso().getNivel() + "\n";
+    	r += "NP1: " + this.getNotas().getNp1().getValor() + "\n";
+    	r += "NP2: " + this.getNotas().getNp2().getValor() + "\n";
+    	r += "Rep: " + this.getNotas().getReposicao().getValor() + "\n";
+    	r += "Exm: " + this.getNotas().getExame().getValor() + "\n";
+    	r += "Média: " + this.getMedia() + "\n";
+    	if(this.isAprovado()) {
+    		r += "Aprovado: SIM\n";
+    	} else {
+    		r += "Aprovado: NAO\n";
+    	}
+    	return r;
+    }
 }

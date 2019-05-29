@@ -8,7 +8,15 @@ public final class Graduacao extends Curso {
 
 	@Override
 	public String getNivel() {
-		return "graduacao";
+		return "GRADUACAO";
 	}
 
+	@Override
+	public String toCSVString() {
+		String r = "";
+		r = this.getNome() + ";GRADUACAO;" + this.getAno();
+		return r;
+	}
+
+	
 }

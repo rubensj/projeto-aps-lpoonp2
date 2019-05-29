@@ -3,6 +3,7 @@ package controller;
 import model.Aluno;
 import model.Curso;
 import model.Model;
+import model.dao.LerEscreverCSV;
 import model.Notas;
 import model.Rendimento;
 import view.View;
@@ -58,8 +59,18 @@ public class Controller {
 	}
 	
 	private void exibeRelatorio() {
-		// TODO Auto-generated method stub
-		
+		Curso curso = null;
+		// acha curso
+		while(curso==null) {
+			curso = view.pedirCurso();
+			if(!Model.faculdade.quadroDeCursos.contains(curso)) {
+				System.out.println("Curso nao foi encontrado");
+				curso = null;
+			}
+		}
+		for(Rendimento rendimento: Model.faculdade.quadroDeCursos.rendimentosPorCurso.get(curso)) {
+			System.out.println(rendimento);
+		};
 	}
 
 	private void exibeHistorico() {
@@ -72,7 +83,9 @@ public class Controller {
 				System.out.println("Aluno nao foi encontrado");
 			}
 		}
-		
+		for(Rendimento rendimento: Model.faculdade.quadroDeAlunos.rendimentosPorAluno.get(aluno)) {
+			System.out.println(rendimento);
+		};
 		
 	}
 
@@ -113,6 +126,7 @@ public class Controller {
 			aluno =  Model.faculdade.quadroDeAlunos.getAluno(alunoId);
 			if(aluno == null) {
 				System.out.println("Aluno nao foi encontrado");
+				aluno = null;
 			}
 		}
 		// acha curso
@@ -120,6 +134,7 @@ public class Controller {
 			curso = view.pedirCurso();
 			if(!Model.faculdade.quadroDeCursos.contains(curso)) {
 				System.out.println("Curso nao foi encontrado");
+				curso = null;
 			}
 		}
 		// pede notas
@@ -139,12 +154,12 @@ public class Controller {
 	}
 
 	public void carregaCSV() {
-		// TODO Auto-generated method stub
+		LerEscreverCSV.leCSVs();
 		
 	}
 
 	public void salvaCSV() {
-		// TODO Auto-generated method stub
+		LerEscreverCSV.escreveCSVs();
 		
 	}
 

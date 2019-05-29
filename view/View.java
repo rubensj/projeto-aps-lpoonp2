@@ -49,26 +49,18 @@ public class View {
 		String novoNome = in.nextLine();
 		System.out.println("Ano:");
 		String novoAno = in.nextLine();
-		System.out.println("Tipo: (graduacao/pos)");
+		System.out.println("Tipo: (g=graduacao/p=pos)");
 		String novoTipo = in.nextLine();
 		
-		if(novoTipo=="graduacao") return new Graduacao(novoNome, Integer.parseInt(novoAno));
-		else return new Pos_graducao(novoNome, Integer.parseInt(novoAno));
+		if(novoTipo.toUpperCase().charAt(0)=='G') {
+			System.out.println("grad");
+			return new Graduacao(novoNome, Integer.parseInt(novoAno));
+		} else {
+			System.out.println("pos");
+			return new Pos_graduacao(novoNome, Integer.parseInt(novoAno));
+		}
 	}
 
-//	public Rendimento pedirRendimento(Faculdade f) {
-//		
-//		Scanner in = new Scanner(System.in);
-//		
-//		System.out.println("Entre com as notas");
-//		double notaNp1 = Double.parseDouble(in.nextLine());
-//		double notaNp2 = Double.parseDouble(in.nextLine());
-//		double notaRep = Double.parseDouble(in.nextLine());
-//		double notaExm = Double.parseDouble(in.nextLine());
-//		Notas notas = new Notas(notaNp1, notaNp2, notaRep, notaExm);
-//		
-//		return new Rendimento(aluno, curso, notas);
-//	}
 	public Notas pedirNotas() {
 	
 	System.out.println("Entre com as notas\n");
