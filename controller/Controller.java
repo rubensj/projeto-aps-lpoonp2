@@ -132,11 +132,12 @@ public class Controller {
 		// acha curso
 		while(curso==null) {
 			curso = view.pedirCurso();
-			if(!Model.faculdade.quadroDeCursos.contains(curso)) {
+			curso = Model.faculdade.quadroDeCursos.achaCurso(curso);
+			if(curso==null) {
 				System.out.println("Curso nao foi encontrado");
-				curso = null;
 			}
 		}
+		
 		// pede notas
 		notas = view.pedirNotas();
 		

@@ -40,6 +40,13 @@ public class QuadroDeCursos implements Iterable<Curso> {
 	public boolean contains(Curso curso) {
 		return cursos.contains(curso);
 	}
+	
+	public Curso achaCurso(Curso needle) {
+		for(Curso curso : cursos) {
+			if(curso.equals(needle)) return curso;
+		}
+		return null;
+	}
 
 	public void addRendimento(Curso curso, Rendimento rendimento) {
 		rendimentosPorCurso.get(curso).add(rendimento);

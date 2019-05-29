@@ -32,7 +32,7 @@ public class LerEscreverCSV {
     	Aluno aluno;
     	String fileName = "";
     	try {
-    		fileName = "src/files/alunos.csv";
+    		fileName = "bin/files/alunos.csv";
     		System.out.println("\nloading: "+fileName+"\n");
     		if(new File(fileName).isFile()) {
 	    		FileInputStream fis = new FileInputStream(fileName);
@@ -60,7 +60,7 @@ public class LerEscreverCSV {
     	Curso curso;
     	String fileName = "";
     	try {
-    		fileName = "src/files/cursos.csv";
+    		fileName = "bin/files/cursos.csv";
     		System.out.println("\nloading: "+fileName+"\n");
     		if(new File(fileName).isFile()) {
 				FileInputStream fis = new FileInputStream(fileName);
@@ -95,7 +95,7 @@ public class LerEscreverCSV {
     	String fileName = "";
     	for(Curso curso : Model.faculdade.quadroDeCursos.cursos) {
 	    	try {
-	    		fileName = "src/files/"+curso.getNome()+"_"+curso.getNivel()+"_"+curso.getAno()+".csv";
+	    		fileName = "bin/files/"+curso.getNome()+"_"+curso.getNivel()+"_"+curso.getAno()+".csv";
 	    		System.out.println("\nloading: "+fileName+"\n");
 	    		if(new File(fileName).isFile()) {
 					FileInputStream fis = new FileInputStream(fileName);
@@ -135,7 +135,7 @@ public class LerEscreverCSV {
 		String fileName = "";
 
 		for(Curso curso : Model.faculdade.quadroDeCursos) {
-	    	fileName = "src/files/"+curso.getNome()+"_"+curso.getNivel()+"_"+curso.getAno()+".csv";
+	    	fileName = "bin/files/"+curso.getNome()+"_"+curso.getNivel()+"_"+curso.getAno()+".csv";
 	
 	    	try {
 				PrintWriter out = new PrintWriter(
@@ -158,7 +158,7 @@ public class LerEscreverCSV {
 	private static int escreveCursos() {
 		int count = 0;
 
-    	String fileName = "src/files/cursos.csv";
+    	String fileName = "bin/files/cursos.csv";
 
     	try {
 			PrintWriter out = new PrintWriter(
@@ -180,7 +180,7 @@ public class LerEscreverCSV {
 	private static int escreveAlunos() {
 		int count = 0;
 
-    	String fileName = "src/files/alunos.csv";
+    	String fileName = "bin/files/alunos.csv";
 
     	try {
 			PrintWriter out = new PrintWriter(
